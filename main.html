@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Prateek Rajput</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e1e1e, #252525);
+            color: #FFD700;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            z-index: 2;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0 20px;
+            color: #ffffff;
+            z-index: 2;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #434342;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #FFA500;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: #FFD700;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .about, .education, .experience, .projects, .skills, .contact {
+            background: #1e1e1e;
+        }
+
+        .startup {
+            background: linear-gradient(135deg, #252525, #000);
+        }
+
+        .content {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+        }
+        /* skill */
+        .skills {
+    background: #1e1e1e;
+    padding: 60px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.skills h3 {
+    margin: 20px 0 10px;
+    font-size: 1.8rem;
+    color: #fffffc;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skills-list li {
+    background: linear-gradient(135deg, #252525, #333);
+    color: #FFD700;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-list li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+        /* Cards for Experience Section */
+        .experience-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #252525, #1e1e1e);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            color: #FFD700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 215, 0, 0.1);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Cards for Projects Section */
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #1e1e1e, #252525);
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            color: #FFD700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #FFD700;
+            color: #000;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #FFA500;
+        }
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .social-media {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 25px;
+}
+
+.social-media a img {
+    transition: transform 0.3s ease;
+    height: 100px;
+    width: 100px;
+}
+
+.social-media a img:hover {
+    transform: scale(1.2);
+}
+/* resonsive For small devices */
+@media screen and (max-width: 768px) {
+    .experience-cards, .project-cards {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    header img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+/* For extra small devices */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .card, .project-card {
+        padding: 15px;
+    }
+}
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 25px;
+    font-size: 1.5rem;
+}
+
+nav ul li a:hover {
+    color: #FFA500;
+    transform: rotate(90);
+   
+}
+#linkproject3{
+    text-decoration: none;
+    font-size: medium;
+    font-style: italic;
+    color: #fff;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Particle Background  -->
+    <div id="particles-js"></div> 
+
+     
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <canvas class="particles"></canvas>
+        <img src="prof.jpg" alt="Prateek Rajput">
+        <h1>Prateek Rajput</h1>
+        <p>Aspiring Electrical Engineer | Tech Enthusiast </p>
+        <a href="#about" class="btn">More About Me</a>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <div class="content">
+            <p>I am a second-year B.Tech student at IIT Indore, specializing in Electrical Engineering. My interests lie in Robotics, Machine Learning, and Software Development. Apart from academics, I am actively working on building an online teaching startup to revolutionize education.
+
+            </p>
+         
+        </div>
+    </section>
+
+    <!-- Education Section  -->
+    <section id="education" class="education">
+        <h2>Education</h2>
+        <div class="content">
+            <div class="iit"><h3><strong>B.Tech</strong> at IIT Indore (2023–2027)</h3>
+                <p>Specialization: Electrical Engineering</p>
+                <p>Key Courses: Digital Systems, Network Theory, and Complex Analysis</p></div>
+                <div class="school">
+                    <h3>Cbse 12th (Pcmb): 96.0% </h3>
+                    <h3>Cbse 10th : 99.2% </h3>
+                </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h2>Experience</h2>
+        <div class="experience-cards">
+            <div class="card">
+                <h3>Web Developer</h3>
+                <p>Student International Relations Cell, IIT Indore</p>
+            </div>
+            <div class="card">
+                <h3>Web Developer</h3>
+                <p>E-Cell, IIT Indore</p>
+            </div>
+            <div class="card">
+                <h3>Member</h3>
+                <p>EESA (Electrical Engineering Students Association)</p>
+            </div>
+            <div class="card">
+                <h3>Member</h3>
+                <p>Lakshya (Annual fest of IIT Indore)</p>
+            </div>
+            <div class="card">
+                <h3>Member</h3>
+                <p>CFA Club (Finance and Quant)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <h3>DC Motor Circuit PID Control</h3>
+                <p>Integrated PID control into a DC motor circuit to achieve desired speed output.</p>
+            </div>
+            <div class="project-card">
+                <h3>ECG Signal Filtration and Amplification</h3>
+                <p>Using LTSpice, designed filters and amplifiers to process ECG signals effectively.</p>
+            </div>
+            <div class="project-card">
+                <h3>ML model for bitcoin trading</h3>
+                <p>It is a predictive trading system using historical BTC/USDT data</p>
+                <p>Link:<a id="linkproject3" href="https://github.com/Prateekrajput9/financepage/blob/main/finalproject.py" target="_blank">Click</a></p>
+            </div>
+            <div class="project-card">
+                <h3>THE LEETMASTER</h3>
+                <p>It shows leeetcode score and all probelms solved by user</p>
+                <p>Link:<a id="linkproject3" href="https://github.com/Prateekrajput9/TheLeetMaster" target="_blank">Click</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="content">
+            <h3>Technical Skills</h3>
+            <ul class="skills-list">
+                <li>C++</li>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>React JS</li>
+                <li>MATLAB</li>
+                <li>Arduino</li>
+                <li>LTSpice</li>
+                <li>Verilog HDL</li>
+                <li>Python (Basics)</li>
+                <li>Machine Learning (Basics)</li>
+            </ul>
+            <h3>Soft Skills</h3>
+            <ul class="skills-list">
+                <li>Leadership</li>
+                <li>Event Management</li>
+                <li>Team Collaboration</li>
+            </ul>
+        </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+   <!-- Updated Contact Section -->
+<section id="contact" class="contact">
+    <h2>Contact Me</h2>
+
+    <div class="content">
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/your-linkedin-id/" target="_blank" aria-label="LinkedIn">
+                <img src="linkin.png" alt="LinkedIn" width="40">
+            </a>
+            <a href="https://github.com/your-github-id" target="_blank" aria-label="GitHub">
+                <img src="git.png" alt="GitHub" width="40">
+            </a>
+            <a href="https://www.instagram.com/your-instagram-id/" target="_blank" aria-label="Instagram">
+                <img src="insta.png" alt="Instagram" width="40">
+            </a>
+        </div>
+        <form class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+       
+    </div>
+</section>
+
+
+    <script>
+        const canvas = document.querySelector('.particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+
+        class Particle {
+            constructor(x, y, size, speedX, speedY) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.speedX = speedX;
+                this.speedY = speedY;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                }
+            }
+            draw() {
+                ctx.fillStyle = '#ffdd57';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < 100; i++) {
+                const size = Math.random() * 3 + 1;
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const speedX = (Math.random() - 0.5) * 2;
+                const speedY = (Math.random() - 0.5) * 2;
+                particles.push(new Particle(x, y, size, speedX, speedY));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
